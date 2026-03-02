@@ -12,7 +12,7 @@ export default memo(function AxisInfoPanel({ axis, onClose, isMobile }) {
             width: isMobile ? "calc(100% - 16px)" : 520, maxWidth: "95vw",
             background: "rgba(10,10,22,0.97)", border: "1px solid rgba(100,140,255,0.2)",
             borderRadius: 10, padding: 24, zIndex: 50, boxShadow: "0 12px 50px rgba(0,0,0,0.7)",
-            backdropFilter: "blur(10px)", maxHeight: "80vh", overflowY: "auto",
+            backdropFilter: "blur(10px)", maxHeight: "80dvh", overflowY: "auto",
         }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                 <div style={{ fontSize: 11, letterSpacing: 2, color: "#9090a0", fontWeight: 700, textTransform: "uppercase" }}>{info.pillar}</div>

@@ -102,7 +102,7 @@ export default function CharacterDetailCard({
                 position: "absolute", zIndex: zBase,
                 ...posStyle,
                 width: isMobile ? "auto" : CARD_WIDTH,
-                maxWidth: "92vw", maxHeight: "80vh", overflowY: "auto",
+                maxWidth: "92vw", maxHeight: "80dvh", overflowY: "auto",
                 background: "rgba(10,10,22,0.96)",
                 border: "1px solid rgba(100,140,255,0.2)",
                 borderRadius: 10,

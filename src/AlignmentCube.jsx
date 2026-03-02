@@ -279,7 +279,7 @@ export default function AlignmentCube() {
     // ---- RENDER ----
     return (
         <div style={{
-            width: "100%", height: "100vh", background: "#0a0a14",
+            width: "100%", height: "100%", background: "#0a0a14",
             fontFamily: "'IBM Plex Mono','Fira Code',monospace",
             color: "#e0e0e0", display: "flex", flexDirection: "column",
             overflow: "hidden", userSelect: "none", touchAction: "none",
@@ -475,7 +475,7 @@ export default function AlignmentCube() {
                         {drawer && <div onClick={() => setDrawer(false)} style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 9 }} />}
                         <div style={{
                             position: "absolute", bottom: 0, left: 0, right: 0,
-                            maxHeight: drawer ? "78vh" : 0, overflow: "hidden",
+                            maxHeight: drawer ? "78dvh" : 0, overflow: "hidden",
                             transition: "max-height 0.3s ease",
                             background: "#0c0c1a", borderTop: drawer ? "1px solid rgba(100,140,255,0.15)" : "none",
                             zIndex: 10, borderRadius: "16px 16px 0 0",
