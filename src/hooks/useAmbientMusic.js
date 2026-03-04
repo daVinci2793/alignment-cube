@@ -89,11 +89,13 @@ export default function useAmbientMusic() {
             audio.currentTime = 0;
             audio.volume = 0;
             audio.play().then(() => {
+                if (unmountedRef.current) { audio.pause(); return; }
                 // Fade in
                 fadeVolume(audio, 0, vol, FADE_MS);
 
                 // Schedule fade-out near the end of the track
                 const waitForFadeOut = Math.max(0, (audio.duration - FADE_MS / 1000) * 1000);
+                if (timerRef.current) clearTimeout(timerRef.current);
                 timerRef.current = setTimeout(() => {
                     if (unmountedRef.current) return;
                     fadeVolume(audio, audio.volume, 0, FADE_MS, () => {
@@ -109,7 +111,7 @@ export default function useAmbientMusic() {
 
         /* ---------- initialise ---------- */
         const audio = new Audio(AUDIO_SRC);
-        audio.preload = "auto";
+        audio.preload = "none";
         audio.volume = 0;
         audioRef.current = audio;
 

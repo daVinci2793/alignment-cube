@@ -142,7 +142,7 @@ export default memo(function ArchetypePanel({ activeArchetype, setActiveArchetyp
                     fontSize: 11, letterSpacing: 2, color: "#9090a0",
                     fontWeight: 700, textTransform: "uppercase",
                 }}>The 27 Archetypes</div>
-                <button onClick={onClose} style={{
+                <button aria-label="Close archetypes" onClick={onClose} style={{
                     background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)",
                     color: "#9090a0", fontSize: 16, cursor: "pointer", padding: "4px 10px", borderRadius: 4,
                     fontFamily: "inherit", lineHeight: 1.2,

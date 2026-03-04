@@ -136,7 +136,7 @@ export function useKeyboard({
 /**
  * Canvas resize and DPR management.
  */
-export function useCanvasResize(wrapRef, canvasRef, setCSize) {
+export function useCanvasResize(wrapRef, setCSize) {
     useEffect(() => {
         const el = wrapRef.current;
         if (!el) return;
@@ -147,12 +147,6 @@ export function useCanvasResize(wrapRef, canvasRef, setCSize) {
         ro.observe(el);
         return () => ro.disconnect();
     }, [wrapRef, setCSize]);
-
-    // Sync canvas buffer size with CSS size
-    useEffect(() => {
-        const c = canvasRef.current;
-        if (!c) return;
-    }, [canvasRef]);
 }
 
 /**

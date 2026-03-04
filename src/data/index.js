@@ -4,11 +4,13 @@ import { hsl2hex, hex2rgb } from "../utils/color.js";
 import { ARCHETYPES, getCharactersInArchetype } from "./archetypes.js";
 
 // ---- Assign colors from category palette with per-character variation ----
+const catSizes = {};
+CHARACTERS.forEach(ch => { catSizes[ch.category] = (catSizes[ch.category] || 0) + 1; });
 const catCounters = {};
 CHARACTERS.forEach(ch => {
     const pal = CATEGORY_PALETTES[ch.category] || CATEGORY_PALETTES.Fiction;
     const idx = (catCounters[ch.category] = (catCounters[ch.category] || 0) + 1) - 1;
-    const catSize = CHARACTERS.filter(c => c.category === ch.category).length;
+    const catSize = catSizes[ch.category];
     const hueSpread = catSize > 1 ? (idx / (catSize - 1) - 0.5) * 36 : 0;
     const lightSpread = catSize > 1 ? (idx / (catSize - 1) - 0.5) * 24 : 0;
     const satSpread = catSize > 1 ? (idx / (catSize - 1) - 0.5) * 20 : 0;
@@ -46,7 +48,10 @@ CHARACTERS.forEach(a => {
 });
 
 // ---- Derived constants ----
-export const CATEGORIES = ["All", ...new Set(CHARACTERS.map(c => c.category))];
+export const CATEGORIES = ["All", ...[...new Set(CHARACTERS.map(c => c.category))].sort()];
+
+// ---- Precompute name → character map (O(1) lookup in render path) ----
+export const CHAR_MAP = new Map(CHARACTERS.map(c => [c.name, c]));
 
 // Star color palettes: cool blue, warm white, pale gold, soft rose
 const _STAR_TINTS = [

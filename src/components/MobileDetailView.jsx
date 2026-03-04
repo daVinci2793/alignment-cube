@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { CHARACTERS, NEAREST_5 } from "../data/index.js";
+import { CHARACTERS, NEAREST_5, CHAR_MAP } from "../data/index.js";
 import { getArchetypeForChar } from "../data/index.js";
 import AxisBar from "./AxisBar.jsx";
 import AlignmentBadge from "./AlignmentBadge.jsx";
@@ -21,7 +21,7 @@ export default memo(function MobileDetailView({ selectedList, hovered, onCharCli
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {selectedList.map(name => {
-                const sel = CHARACTERS.find(c => c.name === name);
+                const sel = CHAR_MAP.get(name);
                 if (!sel) return null;
                 const nearest = NEAREST_5[sel.name] || [];
 
@@ -96,7 +96,7 @@ export default memo(function MobileDetailView({ selectedList, hovered, onCharCli
                                         Nearest neighbors
                                     </div>
                                     {nearest.map((n, i) => {
-                                        const nCh = CHARACTERS.find(c => c.name === n.name);
+                                        const nCh = CHAR_MAP.get(n.name);
                                         if (!nCh) return null;
                                         return (
                                             <div key={n.name}

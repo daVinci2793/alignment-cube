@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useCallback, useState } from "react";
-import { CHARACTERS, NEAREST_5 } from "../data/index.js";
+import { CHARACTERS, NEAREST_5, CHAR_MAP } from "../data/index.js";
 import { getArchetypeForChar } from "../data/index.js";
 import AxisBar from "./AxisBar.jsx";
 import AlignmentBadge from "./AlignmentBadge.jsx";
@@ -18,7 +18,7 @@ export default function CharacterDetailCard({
     onSelect, onHover, onClose, onFocus,
     isMobile, containerRef,
 }) {
-    const sel = CHARACTERS.find(c => c.name === name);
+    const sel = CHAR_MAP.get(name);
 
     const cardRef = useRef(null);
     const dragging = useRef(false);
@@ -133,7 +133,7 @@ export default function CharacterDetailCard({
                 }}>
                     {sel.name}
                 </div>
-                <button onClick={(e) => { e.stopPropagation(); onClose(name); }} style={{
+                <button aria-label="Close detail card" onClick={(e) => { e.stopPropagation(); onClose(name); }} style={{
                     background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
                     color: "#9494a4", fontSize: 14, cursor: "pointer", padding: "4px 10px", borderRadius: 4,
                     fontFamily: "inherit", lineHeight: 1, flexShrink: 0,
@@ -187,7 +187,7 @@ export default function CharacterDetailCard({
                             Nearest neighbors
                         </div>
                         {nearest.map((n, i) => {
-                            const nCh = CHARACTERS.find(c => c.name === n.name);
+                            const nCh = CHAR_MAP.get(n.name);
                             if (!nCh) return null;
                             return (
                                 <div key={n.name}

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { CHARACTERS, VIEW_PRESETS } from "./data/index.js";
+import { CHARACTERS, VIEW_PRESETS, CHAR_MAP } from "./data/index.js";
 import { clamp } from "./utils/math.js";
 import { drawScene } from "./rendering/drawScene.js";
 import { useRotation, useKeyboard, useCanvasResize, useDrag } from "./hooks/useInteraction.js";
@@ -144,7 +144,7 @@ export default function AlignmentCube() {
     }, [animateTo, markInteracted]);
 
     // ---- Resize ----
-    useCanvasResize(wrapRef, canvasRef, setCSize);
+    useCanvasResize(wrapRef, setCSize);
 
     // ---- Keyboard ----
     // Wrap setSelectedList for Escape clearing (useKeyboard expects setSelected)
@@ -267,12 +267,13 @@ export default function AlignmentCube() {
         cardPositionsRef.current[name] = pos;
     }, []);
 
-    // ---- Toolbar button style ----
+    // ---- Toolbar button style (hoisted; isMobile captured per render) ----
+    const btnPad = isMobile ? "7px 10px" : "5px 10px";
     const btn = (active) => ({
         background: active ? "rgba(100,140,255,0.22)" : "rgba(255,255,255,0.03)",
         border: `1px solid ${active ? "rgba(100,140,255,0.4)" : "rgba(255,255,255,0.06)"}`,
         color: active ? "#ccc" : "#8b8b9b",
-        padding: isMobile ? "7px 10px" : "5px 10px",
+        padding: btnPad,
         fontSize: 10, letterSpacing: 1, cursor: "pointer", borderRadius: 3,
         fontFamily: "inherit", whiteSpace: "nowrap", transition: "all 0.15s",
     });
@@ -283,14 +284,14 @@ export default function AlignmentCube() {
             width: "100%", height: "100%", background: "#0a0a14",
             fontFamily: "'IBM Plex Mono','Fira Code',monospace",
             color: "#e0e0e0", display: "flex", flexDirection: "column",
-            overflow: "hidden", userSelect: "none", touchAction: "none",
+            overflow: "hidden",
         }}>
             {/* Header toolbar */}
             <div style={{
                 padding: isMobile ? "8px 12px 5px" : "10px 20px 6px",
                 borderBottom: "1px solid rgba(100,140,255,0.08)", flexShrink: 0,
                 display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8,
-                background: "rgba(10,10,20,0.5)",
+                background: "rgba(10,10,20,0.5)", userSelect: "none",
             }}>
                 <h1 style={{
                     margin: 0, fontSize: isMobile ? 11 : 15, fontWeight: 700, letterSpacing: 3,
@@ -362,6 +363,7 @@ export default function AlignmentCube() {
                 {/* Canvas container */}
                 <div ref={wrapRef} style={{ flex: 1, position: "relative", minHeight: 0, overflow: "hidden" }}>
                     <canvas ref={canvasRef}
+                        role="img" aria-label="3D alignment cube visualization"
                         onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp}
                         onPointerLeave={onLeave} onPointerCancel={onUp}
                         onMouseDown={e => { if (e.button === 1) e.preventDefault(); }}
@@ -369,14 +371,14 @@ export default function AlignmentCube() {
                         style={{
                             width: "100%", height: "100%",
                             cursor: dragRef.current === "pan" ? "move" : dragRef.current ? "grabbing" : hovered ? "pointer" : "grab",
-                            touchAction: "none",
+                            touchAction: "none", userSelect: "none",
                         }}
                     />
                     <PlaneOverlay plane={activePlane} isMobile={isMobile} />
 
                     {/* Floating clear button */}
                     {selectedList.length > 0 && (
-                        <button onClick={() => { setSelectedList([]); setFocusOrder([]); setCompareList([]); }} style={{
+                        <button aria-label="Clear selection" onClick={() => { setSelectedList([]); setFocusOrder([]); setCompareList([]); }} style={{
                             position: "absolute", top: isMobile ? 8 : 12, right: isMobile ? 8 : 12, zIndex: 8,
                             background: "rgba(12,12,25,0.85)", border: "1px solid rgba(255,255,255,0.15)",
                             color: "#aaa", padding: isMobile ? "8px 12px" : "6px 10px",
@@ -412,7 +414,7 @@ export default function AlignmentCube() {
 
                     {/* Mobile drawer toggle */}
                     {isMobile && (
-                        <button onClick={() => setDrawer(p => !p)} style={{
+                        <button aria-label={drawer ? "Close drawer" : "Open drawer"} onClick={() => setDrawer(p => !p)} style={{
                             position: "absolute", bottom: 12, right: 12, zIndex: 8,
                             background: drawer ? "rgba(100,140,255,0.3)" : "rgba(12,12,25,0.9)",
                             border: `1px solid ${selectedList.length > 0 && !drawer ? "rgba(100,180,255,0.5)" : "rgba(100,140,255,0.3)"}`,
@@ -426,9 +428,9 @@ export default function AlignmentCube() {
                                 <span style={{
                                     position: "absolute", top: -3, right: -3,
                                     width: 10, height: 10, borderRadius: "50%",
-                                    background: CHARACTERS.find(c => c.name === primarySelected)?.color || "#648cff",
+                                    background: CHAR_MAP.get(primarySelected)?.color || "#648cff",
                                     border: "2px solid rgba(12,12,25,0.9)",
-                                    boxShadow: `0 0 8px ${CHARACTERS.find(c => c.name === primarySelected)?.color || "#648cff"}88`,
+                                    boxShadow: `0 0 8px ${CHAR_MAP.get(primarySelected)?.color || "#648cff"}88`,
                                 }} />
                             )}
                         </button>
@@ -488,7 +490,7 @@ export default function AlignmentCube() {
                                 <div style={{ width: 36, height: 4, borderRadius: 2, background: "rgba(255,255,255,0.12)" }} />
                                 <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
                                     {selectedList.length > 0 && (
-                                        <button onClick={() => { setSelectedList([]); setFocusOrder([]); }} style={{
+                                        <button aria-label="Clear selection" onClick={() => { setSelectedList([]); setFocusOrder([]); }} style={{
                                             background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)",
                                             color: "#9090a0", fontSize: 9, cursor: "pointer", padding: "3px 8px", borderRadius: 4,
                                             fontFamily: "inherit", letterSpacing: 0.5,
@@ -519,8 +521,8 @@ export default function AlignmentCube() {
                                                 <span style={{
                                                     position: "absolute", top: 6, right: "calc(50% - 28px)",
                                                     width: 7, height: 7, borderRadius: "50%",
-                                                    background: CHARACTERS.find(c => c.name === primarySelected)?.color || "#648cff",
-                                                    boxShadow: `0 0 6px ${CHARACTERS.find(c => c.name === primarySelected)?.color || "#648cff"}88`,
+                                                    background: CHAR_MAP.get(primarySelected)?.color || "#648cff",
+                                                    boxShadow: `0 0 6px ${CHAR_MAP.get(primarySelected)?.color || "#648cff"}88`,
                                                 }} />
                                             )}
                                         </button>

@@ -5,8 +5,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alignment Cube — Praxis · Ethos · Nexus</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" />
+    <meta name="description"
+        content="A 3-D interactive visualization mapping fictional, historical, and mythological characters across the Praxis, Ethos, and Nexus alignment axes." />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Alignment Cube — Praxis · Ethos · Nexus" />
+    <meta property="og:description"
+        content="Explore 400+ characters plotted in a three-axis alignment cube: method, impact, and reach." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/favicon.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Alignment Cube" />
+    <meta name="twitter:description" content="Explore 400+ characters plotted in a three-axis alignment cube." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Self-hosted IBM Plex Mono (Latin subset) -->
+    <style>
+        @font-face {
+            font-family: 'IBM Plex Mono';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/IBMPlexMono-400.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'IBM Plex Mono';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('/fonts/IBMPlexMono-500.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'IBM Plex Mono';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('/fonts/IBMPlexMono-600.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'IBM Plex Mono';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('/fonts/IBMPlexMono-700.woff2') format('woff2');
+        }
+    </style>
+    <link rel="preload" href="/fonts/IBMPlexMono-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/IBMPlexMono-700.woff2" as="font" type="font/woff2" crossorigin />
     <style>
         * {
             margin: 0;
@@ -32,7 +84,26 @@
 </head>
 
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <!-- Shown until React mounts -->
+        <div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0a14;">
+            <div
+                style="width:28px;height:28px;border:2px solid rgba(100,140,255,0.15);border-top-color:#648cff;border-radius:50%;animation:spin .8s linear infinite;">
+            </div>
+        </div>
+        <style>
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg)
+                }
+            }
+        </style>
+    </div>
+    <noscript>
+        <p style="color:#e0e0e0;font-family:monospace;padding:32px;text-align:center;">
+            The Alignment Cube requires JavaScript to run.
+        </p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
 </body>
 

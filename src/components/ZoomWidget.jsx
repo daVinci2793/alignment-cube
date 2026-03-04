@@ -14,7 +14,7 @@ export default memo(function ZoomWidget({ zoom, setZoom, isMobile }) {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
-            <button onClick={() => setZoom(prev => clamp(prev + 0.15, 0.4, 3.0))} style={{ ...btnS, borderRadius: "4px 4px 0 0", borderBottom: "none" }}>+</button>
+            <button aria-label="Zoom in" onClick={() => setZoom(prev => clamp(prev + 0.15, 0.4, 3.0))} style={{ ...btnS, borderRadius: "4px 4px 0 0", borderBottom: "none" }}>+</button>
             <div
                 style={{
                     width: 28, height: trackH, background: "rgba(12,12,25,0.9)", border: "1px solid rgba(100,140,255,0.15)",
@@ -45,7 +45,7 @@ export default memo(function ZoomWidget({ zoom, setZoom, isMobile }) {
                 border: "1px solid rgba(100,140,255,0.15)", borderTop: "none", borderBottom: "none",
                 fontSize: 7, color: "#8b8b9b", fontFamily: "inherit", letterSpacing: 0.3, fontWeight: 600,
             }}>{Math.round(zoom * 100)}%</div>
-            <button onClick={() => setZoom(prev => clamp(prev - 0.15, 0.4, 3.0))} style={{ ...btnS, borderRadius: "0 0 4px 4px", borderTop: "none" }}>−</button>
+            <button aria-label="Zoom out" onClick={() => setZoom(prev => clamp(prev - 0.15, 0.4, 3.0))} style={{ ...btnS, borderRadius: "0 0 4px 4px", borderTop: "none" }}>−</button>
         </div>
     );
 })

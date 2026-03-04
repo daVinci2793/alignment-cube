@@ -16,7 +16,7 @@ export default memo(function AxisInfoPanel({ axis, onClose, isMobile }) {
         }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                 <div style={{ fontSize: 11, letterSpacing: 2, color: "#9090a0", fontWeight: 700, textTransform: "uppercase" }}>{info.pillar}</div>
-                <button onClick={onClose} style={{
+                <button aria-label="Close axis info" onClick={onClose} style={{
                     background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)",
                     color: "#9090a0", fontSize: 16, cursor: "pointer", padding: "4px 10px", borderRadius: 4,
                     fontFamily: "inherit", lineHeight: 1.2,

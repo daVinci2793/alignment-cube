@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, memo } from "react";
 import { hex2rgb } from "../utils/color.js";
 import { VIEW_PRESETS } from "../data/axisInfo.js";
 
-export default function CadGizmo({ rotX, rotY, activeView, onSelectView, isMobile }) {
+export default memo(function CadGizmo({ rotX, rotY, activeView, onSelectView, isMobile }) {
     const size = isMobile ? 64 : 105;
     const cRef = useRef(null);
 
@@ -83,4 +83,4 @@ export default function CadGizmo({ rotX, rotY, activeView, onSelectView, isMobil
             </div>
         </div>
     );
-}
+});

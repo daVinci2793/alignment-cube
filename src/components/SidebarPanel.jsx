@@ -1,5 +1,5 @@
 import React, { useMemo, memo } from "react";
-import { CHARACTERS, AXIS_INFO, NEAREST_5, CATEGORIES, CATEGORY_PALETTES } from "../data/index.js";
+import { CHARACTERS, AXIS_INFO, NEAREST_5, CATEGORIES, CATEGORY_PALETTES, CHAR_MAP } from "../data/index.js";
 
 export default memo(function SidebarPanel({
     selectedList, hovered, onCharClick, setHovered,
@@ -10,9 +10,9 @@ export default memo(function SidebarPanel({
     isMobile,
 }) {
     const primarySel = selectedList.length > 0 ? selectedList[selectedList.length - 1] : null;
-    const sel = CHARACTERS.find(c => c.name === (primarySel || hovered));
+    const sel = CHAR_MAP.get(primarySel || hovered);
 
-    const compareChars = compareList.map(n => CHARACTERS.find(c => c.name === n)).filter(Boolean);
+    const compareChars = compareList.map(n => CHAR_MAP.get(n)).filter(Boolean);
     const compareDist = compareChars.length === 2
         ? Math.sqrt(
             (compareChars[0].x - compareChars[1].x) ** 2 +
@@ -188,7 +188,7 @@ export default memo(function SidebarPanel({
                 <div style={{ flexShrink: 0, padding: "8px 0", borderTop: "1px solid rgba(100,140,255,0.06)" }}>
                     <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
                         {selectedList.map(name => {
-                            const ch = CHARACTERS.find(c => c.name === name);
+                            const ch = CHAR_MAP.get(name);
                             if (!ch) return null;
                             return (
                                 <span key={name} style={{

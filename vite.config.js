@@ -9,5 +9,14 @@ export default defineConfig({
     },
     build: {
         outDir: "dist",
+        target: "es2020",
+        sourcemap: "hidden",
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    vendor: ["react", "react-dom"],
+                },
+            },
+        },
     },
 });
