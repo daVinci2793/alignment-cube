@@ -46,7 +46,7 @@ export default memo(function SidebarPanel({
             {/* Top controls — fixed */}
             <div style={{ flexShrink: 0 }}>
                 {/* Three Pillars buttons */}
-                <div style={{ fontSize: 9, letterSpacing: 2, textTransform: "uppercase", color: "#8b8b9b", marginBottom: 8, fontWeight: 700 }}>The Three Pillars</div>
+                <div style={{ fontSize: 9, letterSpacing: 2, textTransform: "uppercase", color: "#8b8b9b", marginBottom: 8, fontWeight: 700 }}>The Three Axes</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 16 }}>
                     {["x", "y", "z"].map(axis => (
                         <button key={axis} onClick={() => setInfoAxis(prev => prev === axis ? null : axis)} style={{
@@ -72,7 +72,7 @@ export default memo(function SidebarPanel({
                     border: `1px solid ${compareMode ? "rgba(255,180,60,0.35)" : "rgba(255,255,255,0.05)"}`,
                     color: compareMode ? "#ffb43c" : "#8b8b9b",
                     cursor: "pointer", borderRadius: 5, fontFamily: "inherit", letterSpacing: 1, transition: "all 0.15s",
-                }}>{compareMode ? "COMPARE MODE ON — pick 2" : "COMPARE MODE"}</button>
+                }}>{compareMode ? "COMPARE MODE ON: pick 2" : "COMPARE MODE"}</button>
 
                 {/* Compare results */}
                 {compareMode && compareChars.length === 2 && (
@@ -179,7 +179,7 @@ export default memo(function SidebarPanel({
             {/* Placeholder when nothing selected */}
             {!primarySel && !compareMode && (
                 <div style={{ padding: 16, textAlign: "center", color: "#8b8b9b", fontSize: 12, lineHeight: 1.7, flexShrink: 0 }}>
-                    {isMobile ? "Tap" : "Click"} a character to see their PEN breakdown.{!isMobile && " Ctrl+click to open multiple."}
+                    {isMobile ? "Tap" : "Click"} a character to see their alignment breakdown.{!isMobile && " Ctrl+click to open multiple."}
                 </div>
             )}
 

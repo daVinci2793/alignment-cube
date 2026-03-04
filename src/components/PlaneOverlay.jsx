@@ -15,7 +15,7 @@ export default memo(function PlaneOverlay({ plane, isMobile }) {
             <div style={{ fontSize: 11, color: "#9090a0", marginTop: 3 }}>
                 <span style={{ color: a1.color }}>{a1.neg}↔{a1.pos}</span>{" vs "}
                 <span style={{ color: a2.color }}>{a2.neg}↔{a2.pos}</span>
-                <span style={{ color: "#7e7e8e" }}> — {plane.sub}</span>
+                <span style={{ color: "#7e7e8e" }}> · {plane.sub}</span>
             </div>
         </div>
     );

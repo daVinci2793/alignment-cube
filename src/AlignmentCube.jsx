@@ -112,7 +112,7 @@ export default function AlignmentCube() {
 
     // ---- Rotation / animation ----
     const rotation = useRotation({ autoSpin, setAutoSpin });
-    const { rotXRef, rotYRef, frameRef, setRotX, setRotY, animateTo, onFrameRef } = rotation;
+    const { rotXRef, rotYRef, frameRef, setRotX, setRotY, animateTo, setVelocity, clearVelocity, onFrameRef } = rotation;
 
     // Animation frame callback — drives canvas redraws and hint fading
     useEffect(() => {
@@ -219,6 +219,7 @@ export default function AlignmentCube() {
         isMobileRef, targetRotRef: rotation.rotXRef ? { current: null } : null,
         markInteracted,
         setHovered, setZoom,
+        setVelocity, clearVelocity,
     });
 
     // ---- Canvas draw ----

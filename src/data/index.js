@@ -1,5 +1,5 @@
-import CHARACTERS from "./characters.js";
-import { CATEGORY_PALETTES } from "./axisInfo.js";
+import CHARACTERS from "./characters.json";
+import CATEGORY_PALETTES from "./palettes.json";
 import { hsl2hex, hex2rgb } from "../utils/color.js";
 import { ARCHETYPES, getCharactersInArchetype } from "./archetypes.js";
 
@@ -69,6 +69,6 @@ export const STARS = Array.from({ length: 200 }, () => {
     };
 });
 
-export { default as CHARACTERS } from "./characters.js";
-export { AXIS_INFO, VIEW_PRESETS, CATEGORY_PALETTES } from "./axisInfo.js";
+export { CHARACTERS, CATEGORY_PALETTES };
+export { AXIS_INFO, VIEW_PRESETS } from "./axisInfo.js";
 export { ARCHETYPES, PRAXIS_TIERS, ETHOS_TIERS, NEXUS_TIERS, getArchetypeForChar, getCharactersInArchetype } from "./archetypes.js";

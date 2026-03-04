@@ -13,7 +13,7 @@ export default memo(function MobileDetailView({ selectedList, hovered, onCharCli
     if (!selectedList || selectedList.length === 0) {
         return (
             <div style={{ padding: 32, textAlign: "center", color: "#8b8b9b", fontSize: 12, lineHeight: 1.8 }}>
-                Tap a character in the cube to see their PEN breakdown.
+                Tap a character in the cube to see their alignment breakdown.
             </div>
         );
     }
@@ -63,9 +63,9 @@ export default memo(function MobileDetailView({ selectedList, hovered, onCharCli
 
                             {/* Axis bars */}
                             <div style={{ fontSize: 12 }}>
-                                <AxisBar label="Praxis — Method" color="#ff6b6b" value={sel.x} neg="Structured" mid="Pragmatic" pos="Unbound" />
-                                <AxisBar label="Ethos — Impact" color="#ffd93d" value={sel.y} neg="Benevolent" mid="Transactional" pos="Malignant" />
-                                <AxisBar label="Nexus — Scope" color="#6bcb77" value={sel.z} neg="Parochial" mid="Factional" pos="Universal" />
+                                <AxisBar label="Praxis: Method" color="#ff6b6b" value={sel.x} neg="Structured" mid="Pragmatic" pos="Unbound" />
+                                <AxisBar label="Ethos: Impact" color="#ffd93d" value={sel.y} neg="Benevolent" mid="Transactional" pos="Malignant" />
+                                <AxisBar label="Nexus: Reach" color="#6bcb77" value={sel.z} neg="Parochial" mid="Factional" pos="Universal" />
                             </div>
 
                             {/* Alignment badge */}

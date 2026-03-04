@@ -153,7 +153,7 @@ export default memo(function ArchetypePanel({ activeArchetype, setActiveArchetyp
                 fontSize: 12, lineHeight: 1.6, color: "#9494a4", marginBottom: 16,
                 padding: "8px 10px", background: "rgba(255,255,255,0.02)", borderRadius: 6,
             }}>
-                Every character in the cube belongs to one of 27 archetypes — defined by their
+                Every character in the cube belongs to one of 27 archetypes, defined by their
                 {" "}<span style={{ color: AXIS_COLOR.x }}>Praxis</span>,
                 {" "}<span style={{ color: AXIS_COLOR.y }}>Ethos</span>, and
                 {" "}<span style={{ color: AXIS_COLOR.z }}>Nexus</span> tier.

@@ -154,9 +154,9 @@ export default function CharacterDetailCard({
 
                 {/* Axis bars */}
                 <div style={{ fontSize: 12 }}>
-                    <AxisBar label="Praxis — Method" color="#ff6b6b" value={sel.x} neg="Structured" mid="Pragmatic" pos="Unbound" />
-                    <AxisBar label="Ethos — Impact" color="#ffd93d" value={sel.y} neg="Benevolent" mid="Transactional" pos="Malignant" />
-                    <AxisBar label="Nexus — Scope" color="#6bcb77" value={sel.z} neg="Parochial" mid="Factional" pos="Universal" />
+                    <AxisBar label="Praxis: Method" color="#ff6b6b" value={sel.x} neg="Structured" mid="Pragmatic" pos="Unbound" />
+                    <AxisBar label="Ethos: Impact" color="#ffd93d" value={sel.y} neg="Benevolent" mid="Transactional" pos="Malignant" />
+                    <AxisBar label="Nexus: Reach" color="#6bcb77" value={sel.z} neg="Parochial" mid="Factional" pos="Universal" />
                 </div>
 
                 {/* Alignment badge */}

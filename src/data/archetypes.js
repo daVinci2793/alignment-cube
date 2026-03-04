@@ -49,7 +49,7 @@ export const ARCHETYPES = [
         nRange: { x: T1, y: T1, z: T1 },
         traits: ["Dutiful", "Protective", "Disciplined", "Loyal"],
         description:
-            "Devoted protector operating within a strict personal code, fiercely defending a small circle. The bodyguard with an oath, the parent with ironclad house rules. Their discipline exists to serve the people they love — and no one else.",
+            "A devoted protector operating within a strict personal code, defending a small circle with everything they have. The bodyguard with an oath. The parent with ironclad rules. Discipline exists to serve the people they love, and no one else.",
     },
     {
         code: "SBf",
@@ -58,7 +58,7 @@ export const ARCHETYPES = [
         nRange: { x: T1, y: T1, z: T2 },
         traits: ["Steadfast", "Principled", "Selfless", "Devoted"],
         description:
-            "Oath-sworn defender of a community, cause, or institution. They maintain the watch so others can sleep. Their code serves something bigger than family but smaller than everything — the guild, the homeland, the fellowship.",
+            "Oath-sworn defender of a community, cause, or institution. Maintains the watch so others can sleep. Their code serves something bigger than family but smaller than everything: the guild, the homeland, the fellowship.",
     },
     {
         code: "SBu",
@@ -67,7 +67,7 @@ export const ARCHETYPES = [
         nRange: { x: T1, y: T1, z: T3 },
         traits: ["Noble", "Selfless", "Resolute", "Idealistic"],
         description:
-            "Maximum order in service of maximum good at maximum scope. The aspirational ideal — moral clarity and universal compassion enforced through unwavering principle. Their code encompasses every sentient being.",
+            "The highest order in service of the highest good at the widest scope. Moral clarity and universal compassion enforced through unwavering principle. Their code encompasses every sentient being.",
     },
 
     // ==================== STRUCTURED + TRANSACTIONAL ====================
@@ -78,7 +78,7 @@ export const ARCHETYPES = [
         nRange: { x: T1, y: T2, z: T1 },
         traits: ["Methodical", "Reserved", "Self-contained", "Routine"],
         description:
-            "Maintains a narrow domain with quiet precision. Neither saint nor villain — just someone who follows the routine, keeps the ledger balanced, and tends the small garden of their life. Order without agenda.",
+            "Maintains a narrow domain with quiet precision. Neither saint nor villain, just someone who follows the routine, keeps the ledger balanced, and tends the small garden of their life. Order without agenda.",
     },
     {
         code: "STf",
@@ -96,7 +96,7 @@ export const ARCHETYPES = [
         nRange: { x: T1, y: T2, z: T3 },
         traits: ["Systematic", "Detached", "Analytical", "Visionary"],
         description:
-            "Designs universal systems with clinical detachment. The framework matters more than its moral output — they build the machine; what it does is someone else's department. Structure for structure's sake, extended to the horizon.",
+            "Designs universal systems with clinical detachment. The framework matters more than its moral output. They build the machine; what it does is someone else's department. Structure for structure's sake, extended to the horizon.",
     },
 
     // ==================== STRUCTURED + MALIGNANT ====================
@@ -107,7 +107,7 @@ export const ARCHETYPES = [
         nRange: { x: T1, y: T3, z: T1 },
         traits: ["Controlling", "Cruel", "Territorial", "Inflexible"],
         description:
-            "Rules a narrow domain through fear and unyielding control. The abusive patriarch, the dungeon keeper who savors the lock. Their code exists not to protect but to cage — and their cage is meticulously maintained.",
+            "Rules a narrow domain through fear and unyielding control. The abusive patriarch, the dungeon keeper who savors the lock. Their code exists not to protect but to cage, and their cage is kept in perfect condition.",
     },
     {
         code: "SMf",
@@ -116,7 +116,7 @@ export const ARCHETYPES = [
         nRange: { x: T1, y: T3, z: T2 },
         traits: ["Dogmatic", "Ruthless", "Zealous", "Persecuting"],
         description:
-            "Enforces harmful doctrine across an organization with systematic precision. Protocols for cruelty, procedures for persecution. Order weaponized at institutional scale — the torturer with a manual and a mandate.",
+            "Enforces harmful doctrine across an organization with systematic precision. Protocols for cruelty, procedures for persecution. Order weaponized at institutional scale. The torturer with a manual and a mandate.",
     },
     {
         code: "SMu",
@@ -125,7 +125,7 @@ export const ARCHETYPES = [
         nRange: { x: T1, y: T3, z: T3 },
         traits: ["Tyrannical", "Absolute", "Visionary", "Oppressive"],
         description:
-            "Structured evil extended across all existence. The tyrant with a plan for everyone. They don't merely rule — they build systems designed to crush in perpetuity. Total order, total harm, total scope.",
+            "Structured evil extended across all existence. The tyrant with a plan for everyone. They don't just rule. They build systems designed to crush in perpetuity. Total order, total harm, total scope.",
     },
 
     // ==================== PRAGMATIC + BENEVOLENT ====================
@@ -136,7 +136,7 @@ export const ARCHETYPES = [
         nRange: { x: T2, y: T1, z: T1 },
         traits: ["Resourceful", "Caring", "Practical", "Close-knit"],
         description:
-            "Does whatever works to keep their people safe. No ideology, no doctrine — just results. When the code fails, they improvise. When the system breaks, they duct-tape it. Love is the only non-negotiable.",
+            "Does whatever works to keep their people safe. No ideology, no doctrine, just results. When the code fails, they improvise. When the system breaks, they duct-tape it. Love is the only non-negotiable.",
     },
     {
         code: "PBf",
@@ -154,7 +154,7 @@ export const ARCHETYPES = [
         nRange: { x: T2, y: T1, z: T3 },
         traits: ["Diplomatic", "Empathetic", "Versatile", "Humanitarian"],
         description:
-            "Pragmatic goodness at universal scale. The diplomat, the humanitarian who will use force or mercy as the moment demands — always in service of the widest possible good. Whatever works, for everyone.",
+            "Pragmatic goodness at universal scale. The diplomat, the humanitarian who will use force or mercy as the moment demands, always in service of the widest possible good. Whatever works, for everyone.",
     },
 
     // ==================== PRAGMATIC + TRANSACTIONAL ====================
@@ -174,7 +174,7 @@ export const ARCHETYPES = [
         nRange: { x: T2, y: T2, z: T2 },
         traits: ["Calculating", "Connected", "Transactional", "Strategic"],
         description:
-            "The deal-maker, the fixer, the faction's neutral grease. Operates within networks, trades favors, and keeps the ecosystem running. No moral investment — just relationships as currency at organizational scale.",
+            "The deal-maker, the fixer, the faction's neutral grease. Operates within networks, trades favors, and keeps the ecosystem running. No moral investment, just relationships as currency at organizational scale.",
     },
     {
         code: "PTu",
@@ -270,7 +270,7 @@ export const ARCHETYPES = [
         nRange: { x: T3, y: T2, z: T3 },
         traits: ["Enigmatic", "Mercurial", "Cosmic", "Amoral"],
         description:
-            "The cosmic trickster who touches everything and owes nothing. Speaks in riddles, defies causality, operates at universal scale with zero allegiance. The court jester of the cosmos — laughing at order and chaos alike.",
+            "The cosmic trickster who touches everything and owes nothing. Speaks in riddles, defies causality, operates at universal scale with zero allegiance. The court jester of the cosmos, laughing at order and chaos alike.",
     },
 
     // ==================== UNBOUND + MALIGNANT ====================
@@ -281,7 +281,7 @@ export const ARCHETYPES = [
         nRange: { x: T3, y: T3, z: T1 },
         traits: ["Feral", "Vicious", "Instinctual", "Solitary"],
         description:
-            "Raw, unstructured harm aimed at whatever's nearest. No ideology, no system, no manifesto — just appetite and proximity. The feral beast, the serial hunter, the monster under the bed.",
+            "Raw, unstructured harm aimed at whatever's nearest. No ideology, no system, no manifesto. Just appetite and proximity. The feral beast, the serial hunter, the monster under the bed.",
     },
     {
         code: "UMf",
